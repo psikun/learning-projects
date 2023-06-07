@@ -1,0 +1,93 @@
+version: "3.2"
+services:
+
+  # nacos配置
+  nacos:
+    image: nacos/nacos-server:v2.2.0
+    container_name: nacos
+    restart: always
+    environment:
+      MODE: standalone
+    ports:
+      - "8848:8848"
+
+  # mysql配置
+  mysql:
+    image: mysql:8.0.31
+    container_name: mysql
+    restart: always #重启docker引擎后该容器也重启
+    environment:
+      MYSQL_ROOT_PASSWORD: psikun
+    volumes:
+      - "~/data/mysql/data:/var/lib/mysql"
+      - "~/data/mysql/conf:/etc/mysql/conf.d/"
+      - "~/data/mysql/log:/var/log/mysql"
+    ports:
+      - "3306:3306"
+
+  # redis配置
+  redis:
+    image: redis:7.0.7
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      #数据和配置挂载
+      - "~/data/redis/redis.conf:/usr/local/etc/redis/redis.conf:rw"
+      - "~/data/redis/data:/data"
+    command: /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf " #使用command可以覆盖容器启动后默认执行的命令。这里启动执行指定的redis.conf文件
+
+  #rabbitmq配置
+  rabbitmq:
+    restart: always
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: rabbit
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      TZ: Asia/Shanghai
+      RABBITMQ_DEFAULT_USER: psikun
+      RABBITMQ_DEFAULT_PASS: psikun
+    volumes:
+      - "~/data/rabbitmq/data:/var/lib/rabbitmq"
+      - "~/data/rabbitmq/conf:/etc/rabbitmq"
+
+  #emqx镜像
+  emqx:
+    container_name: emqx
+    image: emqx/emqx:5.0.24
+    restart: always
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "8083:8083"
+      - "18083:18083"
+    environment:
+      - EMQX_ALLOW_ANONYMOUS=false
+      - EMQX_AUTH__USERNAME=psikun
+      - EMQX_AUTH__PASSWORD=psikun
+      - EMQX_NAME=emqx
+      - EMQX_HOST=127.0.0.1
+      - EMQX_LISTENER__TCP__EXTERNAL=1883
+      - EMQX_LISTENER__SSL__EXTERNAL=8883
+      - EMQX_LISTENER__WS__EXTERNAL=8083
+      - EMQX_LISTENER__WSS__EXTERNAL=8084
+      - EMQX_LOADED_PLUGINS='emqx_management'
+      - EMQX_MANAGEMENT__WEB_UI__HTTP_LISTENER=18083
+      - EMQX_MANAGEMENT__HTTP_LISTENER__ACCEPTORS=4
+      - EMQX_MANAGEMENT__HTTP_LISTENER__MAX_CLIENTS=512
+    # volumes:
+    #   - ~/data/emqx/data:/opt/emqx/data/
+    #   - ~/data/emqx/log:/opt/emqx/log/
+    #   - ~/data/emqx/etc:/opt/emqx/etc/
+
+  # jetkins镜像
+  jenkins:
+    container_name: jenkins
+    image: jenkins
+    ports:
+      - "8080:8080"
+    restart: always
