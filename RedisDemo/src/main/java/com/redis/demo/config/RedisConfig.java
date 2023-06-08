@@ -47,7 +47,10 @@ public class RedisConfig {
     }
 
 
-    // 解决cache(@Cacheable)把数据缓存到redis中的value是乱码问题
+    /**
+     * 使用@Cacheable注解时需要此段配置
+     * 解决cache(@Cacheable)把数据缓存到redis中的value是乱码问题
+     */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory factory) {
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();
