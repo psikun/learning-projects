@@ -28,6 +28,8 @@ spring:
         enabled: true
         max-active: 8
         max-wait: 10s
+  cache:
+    type: redis
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
