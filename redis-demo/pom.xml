@@ -11,8 +11,8 @@
     <groupId>com.redis</groupId>
     <artifactId>redis-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>RedisDemo</name>
-    <description>RedisDemo</description>
+    <name>redis-demo</name>
+    <description>redis-demo</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

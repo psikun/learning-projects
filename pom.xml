@@ -11,6 +11,7 @@
     <modules>
         <module>design-patterns</module>
         <module>netty-demo</module>
+        <module>redis-demo</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
