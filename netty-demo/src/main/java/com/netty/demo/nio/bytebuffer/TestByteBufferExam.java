@@ -1,8 +1,8 @@
-package com.netty.demo.nio;
+package com.netty.demo.nio.bytebuffer;
 
 import java.nio.ByteBuffer;
 
-import static com.netty.demo.nio.ByteBufferUtil.debugAll;
+import static com.netty.demo.nio.bytebuffer.ByteBufferUtil.debugAll;
 
 /**
  * @Author psikun

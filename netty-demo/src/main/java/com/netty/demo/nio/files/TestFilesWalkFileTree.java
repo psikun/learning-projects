@@ -1,4 +1,4 @@
-package com.netty.demo.nio;
+package com.netty.demo.nio.files;
 
 import java.io.IOException;
 import java.nio.file.*;

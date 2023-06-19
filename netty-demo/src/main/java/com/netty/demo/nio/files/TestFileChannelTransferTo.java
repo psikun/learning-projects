@@ -1,4 +1,4 @@
-package com.netty.demo.nio;
+package com.netty.demo.nio.files;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,7 +8,7 @@ import java.nio.channels.FileChannel;
 
 /**
  * @Author psikun
- * @Description com.netty.demo.nio.TestFileChannelTransferTo
+ * @Description com.netty.demo.nio.files.TestFileChannelTransferTo
  * @Date 2023/06/19/ 10:00
  */
 public class TestFileChannelTransferTo {

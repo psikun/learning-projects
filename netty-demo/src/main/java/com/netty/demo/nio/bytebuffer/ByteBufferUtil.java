@@ -1,4 +1,4 @@
-package com.netty.demo.nio;
+package com.netty.demo.nio.bytebuffer;
 
 import io.netty.util.internal.StringUtil;
 
