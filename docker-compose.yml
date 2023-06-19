@@ -1,7 +1,7 @@
 version: "3.2"
 services:
 
-  # nacos配置
+  # nacos
   nacos:
     image: nacos/nacos-server:v2.2.0
     container_name: nacos
@@ -11,7 +11,7 @@ services:
     ports:
       - "8848:8848"
 
-  # mysql配置
+  # mysql
   mysql:
     image: mysql:8.0.31
     container_name: mysql
@@ -25,7 +25,7 @@ services:
     ports:
       - "3306:3306"
 
-  # redis配置
+  # redis
   redis:
     image: redis:7.0.7
     container_name: redis
@@ -91,3 +91,15 @@ services:
     ports:
       - "8080:8080"
     restart: always
+
+  # nginx
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ~/data/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ~/data/nginx/html:/usr/share/nginx/html
