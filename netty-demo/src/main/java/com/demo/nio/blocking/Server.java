@@ -1,5 +1,6 @@
-package com.netty.demo.nio.blocking;
+package com.demo.nio.blocking;
 
+import com.demo.nio.bytebuffer.ByteBufferUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -9,8 +10,6 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.Objects;
-
-import static com.netty.demo.nio.bytebuffer.ByteBufferUtil.debugRead;
 
 /**
  * @Author psikun
@@ -55,7 +54,7 @@ public class Server {
                 int read = channel.read(buffer);
                 if (read > 0) {
                     buffer.flip();
-                    debugRead(buffer);
+                    ByteBufferUtil.debugRead(buffer);
                     buffer.clear();
                     log.debug("after read... {}", channel);
                 }

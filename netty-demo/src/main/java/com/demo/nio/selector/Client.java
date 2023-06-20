@@ -1,4 +1,4 @@
-package com.netty.demo.nio.blocking;
+package com.demo.nio.selector;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

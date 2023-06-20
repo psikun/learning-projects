@@ -1,16 +1,13 @@
-package com.netty.demo.nio.selector;
+package com.demo.nio.selector;
 
+import com.demo.nio.bytebuffer.ByteBufferUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Objects;
-
-import static com.netty.demo.nio.bytebuffer.ByteBufferUtil.debugRead;
 
 /**
  * @Author psikun
@@ -72,7 +69,7 @@ public class Server {
                     ByteBuffer buffer = ByteBuffer.allocate(16);
                     channel.read(buffer);
                     buffer.flip();
-                    debugRead(buffer);
+                    ByteBufferUtil.debugRead(buffer);
                 }
 
             }
