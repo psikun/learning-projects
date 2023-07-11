@@ -1,9 +1,12 @@
 package com.demo.controller;
 
+import com.demo.vo.R;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 /**
  * @Author psikun
@@ -16,7 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class ProductController {
     @GetMapping("/test")
-    public String test() {
-        return "hello";
+    public R test(){
+        return R
+                .ok()
+                .data("message", "hello")
+                .data("now", new Date());
     }
 }
