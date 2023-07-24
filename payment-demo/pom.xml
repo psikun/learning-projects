@@ -68,7 +68,13 @@
         <dependency>
             <groupId>com.github.wechatpay-apiv3</groupId>
             <artifactId>wechatpay-apache-httpclient</artifactId>
-            <version>0.4.9</version>
+            <version>0.3.0</version>
+        </dependency>
+
+        <!-- json处理器 -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
         </dependency>
     </dependencies>
 
