@@ -1,0 +1,10 @@
+server:
+  port: 12002
+  servlet:
+    context-path: /netty
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: netty
