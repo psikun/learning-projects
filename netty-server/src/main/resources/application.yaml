@@ -8,3 +8,8 @@ spring:
       matching-strategy: ant_path_matcher
   application:
     name: netty
+
+#  netty服务端口和WebSocket path
+netty:
+  port: 12003
+  path: /ws
