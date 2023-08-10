@@ -1,11 +1,13 @@
 package com.demo.vo;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Data //生成set、get等方法
+@Data
+@Accessors(chain = true)
 public class R {
     private Integer code;
     private String message;
