@@ -1,0 +1,23 @@
+server:
+  port: 18097
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/camunda?&nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: psikun
+
+
+# camunda登录信息配置
+# camunda登录信息配置
+camunda.bpm:
+  admin-user:
+    id: admin  #用户名
+    password: 123456  #密码
+    firstName: yu
+  filter:
+    create: All tasks
+
+
+
